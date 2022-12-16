@@ -1,3 +1,9 @@
 {
-  "home_screen": "Home Screen"
+  "phone_hint": "+7 (000) 000 - 00 - 00",
+  "continue": "Продолжить",
+  "agreeing_text": "Нажимая \"Продолжить\", вы принимаете ",
+  "terms_of_service": "Пользовательское Соглашение",
+  "and": " и ",
+  "privacy_policy": "Политику конфиденциальности",
+  "whats_your_number": "Введите\nномер телефона"
 }

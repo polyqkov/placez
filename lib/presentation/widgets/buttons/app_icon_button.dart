@@ -26,7 +26,7 @@ class _AppIconButtonState extends State<AppIconButton> {
   Widget build(BuildContext context) {
     return AppTapAnimate(
       onTap: widget.onTap,
-      pressedScale: 0.95,
+      pressedScale: 0.98,
       isButton: true,
       child: Container(
         decoration: ShapeDecoration(

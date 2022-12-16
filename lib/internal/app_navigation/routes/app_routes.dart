@@ -1,10 +1,10 @@
 import 'package:go_router/go_router.dart';
 
-import '../../../presentation/screens/home_screen.dart';
+import '../../../presentation/screens/log_in_screen_view.dart';
 
 class AppRoutes {
-  static final homeRoute = GoRoute(
+  static final logInScreenRoute = GoRoute(
     path: '/',
-    builder: (context, state) => HomeScreen(),
+    builder: (context, state) => LogInScreenView(),
   );
 }
