@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../common/app_media_query_padding_helper.dart';
-
 class AppScaffold extends StatefulWidget {
   const AppScaffold({
     Key? key,
     required this.child,
     this.color,
+    this.paddingTop,
+    this.paddingBottom,
     this.paddingLeft,
     this.paddingRight,
   }) : super(key: key);
 
   final Widget child;
   final Color? color;
+  final double? paddingTop;
+  final double? paddingBottom;
   final double? paddingLeft;
   final double? paddingRight;
 
@@ -30,8 +32,8 @@ class _AppScaffoldState extends State<AppScaffold> {
         backgroundColor: widget.color,
         body: Padding(
           padding: EdgeInsets.only(
-            top: AppMediaQueryPaddingHelper.getPadding(context).top,
-            bottom: AppMediaQueryPaddingHelper.getPadding(context).bottom,
+            top: widget.paddingTop ?? 0.0,
+            bottom: widget.paddingBottom ?? 0.0,
             left: widget.paddingLeft ?? 0.0,
             right: widget.paddingRight ?? 0.0,
           ),

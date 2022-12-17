@@ -1,9 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:placez/internal/app_navigation/app_navigation.dart';
+import 'package:vrouter/vrouter.dart';
 
 import 'firebase_options.dart';
+import 'internal/app_navigation/app_navigation.dart';
 import 'presentation/common/app_themes.dart';
 
 Future<void> main() async {
@@ -29,12 +30,14 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return VRouter(
+      debugShowCheckedModeBanner: false,
       theme: appLightTheme,
-      routerConfig: AppNavigation().router,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
+      mode: VRouterMode.history,
+      routes: AppNavigation().router,
     );
   }
 }

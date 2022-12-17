@@ -15,6 +15,8 @@ class AppTextfield extends StatefulWidget {
     this.textAlign,
     this.hintText,
     this.maxLength,
+    this.autofocus,
+    this.autofillHints,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -23,6 +25,8 @@ class AppTextfield extends StatefulWidget {
   final TextAlign? textAlign;
   final String? hintText;
   final int? maxLength;
+  final bool? autofocus;
+  final Iterable<String>? autofillHints;
 
   @override
   State<AppTextfield> createState() => _AppTextfieldState();
@@ -42,6 +46,8 @@ class _AppTextfieldState extends State<AppTextfield> {
         padding: const EdgeInsets.only(left: 16, right: 16),
         child: TextFormField(
           controller: widget.controller,
+          autofillHints: widget.autofillHints,
+          autofocus: widget.autofocus ?? false,
           maxLength: widget.maxLength,
           keyboardType: widget.keyboardType,
           textAlign: widget.textAlign ?? TextAlign.start,

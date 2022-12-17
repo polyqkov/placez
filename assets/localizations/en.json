@@ -1,9 +1,16 @@
 {
+  "set_up": "Set up my Placez",
   "phone_hint": "+1 (000) 000 0000",
   "continue": "Continue",
   "agreeing_text": "By tapping \"Continue\", you are agreeing to\nour ",
   "terms_of_service": "Terms of Service",
   "and": " and ",
   "privacy_policy": "Privacy Policy",
-  "whats_your_number": "What’s\nyour number?"
+  "whats_your_number": "What’s\nyour number?",
+  "verify_your_number": "Verify\nyour number",
+  "otp_hint": "000000",
+  "send_to": "Send to ",
+  "resend_text": "Try again in ",
+  "sec": " sec",
+  "resend": "Try again"
 }

@@ -25,7 +25,7 @@ class _AppFilledTextButtonState extends State<AppFilledTextButton> {
   Widget build(BuildContext context) {
     return AppTapAnimate(
       onTap: widget.onTap,
-      pressedScale: 0.98,
+      pressedScale: 0.95,
       isButton: true,
       child: Container(
         decoration: ShapeDecoration(

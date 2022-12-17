@@ -1,14 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:vrouter/vrouter.dart';
 
 import '../common/app_color_scheme_helper.dart';
+import '../common/app_icons.dart';
+import '../common/app_media_query_padding_helper.dart';
 import '../common/app_offset_box.dart';
 import '../common/app_padding_grade.dart';
 import '../common/app_text_styles.dart';
 import '../widgets/app_scaffold.dart';
 import '../widgets/app_text.dart';
 import '../widgets/buttons/app_filled_text_button.dart';
+import '../widgets/buttons/app_icon_button.dart';
 import '../widgets/textfields/app_phone_textfields.dart';
 
 class LogInScreenView extends StatefulWidget {
@@ -22,6 +25,7 @@ class _HomeScreenState extends State<LogInScreenView> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
+      paddingBottom: AppMediaQueryPaddingHelper.getPadding(context).bottom,
       paddingLeft: AppPaddingGrade.regularPadding,
       paddingRight: AppPaddingGrade.regularPadding,
       child: Column(
@@ -68,9 +72,24 @@ class _HomeScreenState extends State<LogInScreenView> {
             ),
           ),
           AppOffsetBox.heightRegularBox,
-          AppFilledTextButton(
-            title: 'continue',
-            onTap: () {},
+          Row(
+            children: [
+              AppIconButton(
+                icon: AppIcons.arrowLeft,
+                onTap: () {
+                  context.vRouter.pop();
+                },
+              ),
+              AppOffsetBox.widthRegularBox,
+              Expanded(
+                child: AppFilledTextButton(
+                  title: 'continue',
+                  onTap: () {
+                    context.vRouter.to('otp_screen');
+                  },
+                ),
+              ),
+            ],
           ),
           AppOffsetBox.heightRegularBox,
         ],

@@ -11,10 +11,12 @@ class AppTextButton extends StatefulWidget {
   AppTextButton({
     Key? key,
     required this.title,
+    this.style,
     this.onTap,
   }) : super(key: key);
 
   final String title;
+  final TextStyle? style;
   final void Function()? onTap;
 
   @override
@@ -26,22 +28,20 @@ class _AppTextButtonState extends State<AppTextButton> {
   Widget build(BuildContext context) {
     return AppTapAnimate(
       onTap: widget.onTap,
-      pressedScale: 0.98,
+      pressedScale: 0.95,
       isButton: true,
       child: Container(
         decoration: ShapeDecoration(
           shape:
               AppBorderShape.getShape(cornerRadius: AppBorderGrade.smallBorder),
         ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 18),
-          child: Center(
-            child: AppText(
-              widget.title,
-              style: AppTextStyle.subheadMedium.copyWith(
-                color: AppColorSchemeHelper.getColorScheme(context).primary,
-              ),
-            ),
+        child: Center(
+          child: AppText(
+            widget.title,
+            style: widget.style ??
+                AppTextStyle.subheadMedium.copyWith(
+                  color: AppColorSchemeHelper.getColorScheme(context).primary,
+                ),
           ),
         ),
       ),

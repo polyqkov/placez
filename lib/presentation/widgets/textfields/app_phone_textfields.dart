@@ -52,31 +52,31 @@ class _AppPhoneTextfieldState extends State<AppPhoneTextfield> {
             Expanded(
               child: TextFormField(
                 controller: widget.controller,
+                autofillHints: [AutofillHints.telephoneNumber],
+                autofocus: true,
                 keyboardType: TextInputType.phone,
                 style: AppTextStyle.bodyRegular.copyWith(
                   color: AppColorSchemeHelper.getColorScheme(context).primary,
                 ),
                 textAlignVertical: TextAlignVertical.bottom,
-                onChanged: (val) {
-                  var phoneCode = val
-                      .replaceAll('(', '')
-                      .replaceAll(')', '')
-                      .replaceAll(' ', '')
-                      .replaceAll('+', '');
-                  AppPhoneCountryIcons.icons.forEach((key, value) {
-                    if (key == phoneCode) {
-                      setState(() {
-                        icon = value;
-                      });
-                    }
-                  });
-                  try {
-                    widget.onChanged!(val);
-                  } catch (e) {}
-                },
-                autovalidateMode: AutovalidateMode.always,
+                onChanged: widget.onChanged,
                 inputFormatters: [
-                  PhoneInputFormatter(allowEndlessPhone: false),
+                  PhoneInputFormatter(
+                    allowEndlessPhone: false,
+                    onCountrySelected: (val) {
+                      AppPhoneCountryIcons.icons.forEach((key, value) {
+                        if (key == val?.internalPhoneCode) {
+                          setState(() {
+                            icon = value;
+                          });
+                        } else if (val?.internalPhoneCode == null) {
+                          setState(() {
+                            icon = AppPhoneCountryIcons.icons.values.first;
+                          });
+                        }
+                      });
+                    },
+                  ),
                   FilteringTextInputFormatter.allow(
                     RegExp(r'[()]*[0-9]*[+]*[ ]*'),
                     replacementString: ' - ',
