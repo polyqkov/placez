@@ -12,5 +12,11 @@
   "send_to": "Send to ",
   "resend_text": "Try again in ",
   "sec": " sec",
-  "resend": "Try again"
+  "resend": "Try again",
+  "whats_your_name": "What’s\n your name?",
+  "name": "Name",
+  "surname": "Surname",
+  "welcome!": "Welcome!",
+  "what_youre_interested": "Let us know what you’re interested in...",
+  "finish": "Finish"
 }

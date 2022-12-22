@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:placez/internal/app_navigation/routes/app_routes.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../common/app_media_query_padding_helper.dart';
@@ -27,7 +28,7 @@ class _StartScreenViewState extends State<StartScreenView> {
           AppFilledTextButton(
             title: 'set_up',
             onTap: () {
-              context.vRouter.to('log_in_screen');
+              context.vRouter.to(AppRoutes.logInScreenRoute.path ?? '');
             },
           ),
           AppOffsetBox.heightRegularBox,

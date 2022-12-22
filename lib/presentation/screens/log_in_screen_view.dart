@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:placez/internal/app_navigation/routes/app_routes.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../common/app_color_scheme_helper.dart';
@@ -85,7 +86,7 @@ class _HomeScreenState extends State<LogInScreenView> {
                 child: AppFilledTextButton(
                   title: 'continue',
                   onTap: () {
-                    context.vRouter.to('otp_screen');
+                    context.vRouter.to(AppRoutes.otpScreenRoute.path ?? '');
                   },
                 ),
               ),
