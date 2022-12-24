@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:vrouter/vrouter.dart';
 
 import 'firebase_options.dart';
-import 'internal/app_navigation/app_navigation.dart';
+import 'presentation/app_navigation/app_navigation.dart';
 import 'presentation/common/app_themes.dart';
 
 Future<void> main() async {
@@ -31,6 +31,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return VRouter(
+      initialUrl: '/start_screen',
       debugShowCheckedModeBanner: false,
       theme: appLightTheme,
       localizationsDelegates: context.localizationDelegates,

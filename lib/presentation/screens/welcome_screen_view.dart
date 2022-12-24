@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:vrouter/vrouter.dart';
 
-import '../../internal/app_navigation/routes/app_routes.dart';
+import '../app_navigation/routes/app_routes.dart';
 import '../common/app_color_scheme_helper.dart';
 import '../common/app_media_query_padding_helper.dart';
 import '../common/app_offset_box.dart';
 import '../common/app_padding_grade.dart';
 import '../common/app_text_styles.dart';
-import '../widgets/app_scaffold.dart';
-import '../widgets/app_text.dart';
+import '../widgets/base/app_list_view.dart';
+import '../widgets/base/app_scaffold.dart';
+import '../widgets/base/app_text.dart';
 import '../widgets/buttons/app_filled_text_button.dart';
 import '../widgets/chips/app_category_chips.dart';
 
@@ -40,7 +41,7 @@ class _WelcomeScreenViewState extends State<WelcomeScreenView> {
       paddingRight: AppPaddingGrade.regularPadding,
       child: Column(
         children: [
-          AppOffsetBox.heightLargeBox,
+          AppOffsetBox.heightRegularBox,
           AppText(
             'welcome!',
             alignment: Alignment.topLeft,
@@ -54,42 +55,61 @@ class _WelcomeScreenViewState extends State<WelcomeScreenView> {
             style: AppTextStyle.bodyRegular.copyWith(
                 color: AppColorSchemeHelper.getColorScheme(context).primary),
           ),
-          AppOffsetBox.heightMediumBox,
           Expanded(
-            child: Wrap(
-              spacing: 9.0,
-              runSpacing: 9.0,
-              children: _filters
-                  .map(
-                    (filter) => AppCategoryChip(
-                      title: filter.values.first,
-                      emojiDescription: filter.keys.first,
-                      selected: _filtersSelected.contains(filter),
-                      onSelected: (value) {
-                        setState(() {
-                          if (value) {
-                            if (!_filtersSelected
-                                .contains(filter.values.first)) {
-                              _filtersSelected.add(filter);
-                            }
-                          } else {
-                            _filtersSelected.removeWhere(
-                                (Map<String, String> entry) => entry == filter);
-                          }
-                        });
-                      },
-                    ),
-                  )
-                  .toList(),
+            child: AppListView(
+              children: [
+                AppOffsetBox.heightRegularBox,
+                Wrap(
+                  spacing: 9.0,
+                  runSpacing: 9.0,
+                  children: _filters
+                      .map(
+                        (filter) => AppCategoryChip(
+                          title: filter.values.first,
+                          emojiDescription: filter.keys.first,
+                          selected: _filtersSelected.contains(filter),
+                          onSelected: (value) {
+                            setState(() {
+                              if (value) {
+                                if (!_filtersSelected
+                                    .contains(filter.values.first)) {
+                                  _filtersSelected.add(filter);
+                                }
+                              } else {
+                                _filtersSelected.removeWhere(
+                                    (Map<String, String> entry) =>
+                                        entry == filter);
+                              }
+                            });
+                          },
+                        ),
+                      )
+                      .toList(),
+                ),
+                AppOffsetBox.heightRegularBox,
+              ],
             ),
           ),
-          Spacer(),
-          AppFilledTextButton(
-            title: 'finish',
-            onTap: () {
-              context.vRouter.to(AppRoutes.nameSurnameScreenRoute.path ?? '');
-            },
-          ),
+          _filtersSelected.length < 5
+              ? Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 18),
+                  child: Center(
+                    child: AppText(
+                      'choosed_categories_count',
+                      style: AppTextStyle.subheadMedium.copyWith(
+                        color: AppColorSchemeHelper.getColorScheme(context)
+                            .primary,
+                      ),
+                      args: [_filtersSelected.length.toString()],
+                    ),
+                  ),
+                )
+              : AppFilledTextButton(
+                  title: 'finish',
+                  onTap: () {
+                    context.vRouter.to('/home_screen');
+                  },
+                ),
           AppOffsetBox.heightRegularBox,
         ],
       ),

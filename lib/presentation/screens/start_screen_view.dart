@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:placez/internal/app_navigation/routes/app_routes.dart';
+import 'package:placez/presentation/app_navigation/routes/app_routes.dart';
 import 'package:vrouter/vrouter.dart';
 
 import '../common/app_media_query_padding_helper.dart';
 import '../common/app_offset_box.dart';
 import '../common/app_padding_grade.dart';
-import '../widgets/app_scaffold.dart';
+import '../widgets/base/app_scaffold.dart';
 import '../widgets/buttons/app_filled_text_button.dart';
 
 class StartScreenView extends StatefulWidget {

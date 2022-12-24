@@ -18,5 +18,6 @@
   "surname": "Фамилия",
   "welcome!": "Привет!",
   "what_youre_interested": "Выбери категории, которые тебя интересуют...",
+  "choosed_categories_count":"Выбрано {}/5 категорий",
   "finish": "Завершить"
 }

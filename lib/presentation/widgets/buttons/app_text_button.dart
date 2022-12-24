@@ -5,7 +5,7 @@ import '../../common/app_border_shape.dart';
 import '../../common/app_color_scheme_helper.dart';
 import '../../common/app_text_styles.dart';
 import '../animates/app_tap_animate.dart';
-import '../app_text.dart';
+import '../base/app_text.dart';
 
 class AppTextButton extends StatefulWidget {
   AppTextButton({

@@ -6,6 +6,7 @@ import 'routes/app_routes.dart';
 class AppNavigation implements IAppNavigation {
   final List<VRouteElement> _router = [
     AppRoutes.startScreenRoute,
+    AppRoutes.mainNester,
   ];
 
   @override

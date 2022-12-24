@@ -4,7 +4,7 @@ import 'package:placez/presentation/common/app_border_shape.dart';
 import 'package:placez/presentation/common/app_color_scheme_helper.dart';
 import 'package:placez/presentation/common/app_text_styles.dart';
 import 'package:placez/presentation/widgets/animates/app_tap_animate.dart';
-import 'package:placez/presentation/widgets/app_text.dart';
+import 'package:placez/presentation/widgets/base/app_text.dart';
 
 class AppFilledTextButton extends StatefulWidget {
   AppFilledTextButton({

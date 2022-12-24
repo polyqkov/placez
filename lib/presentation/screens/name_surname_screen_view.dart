@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:vrouter/vrouter.dart';
 
-import '../../internal/app_navigation/routes/app_routes.dart';
+import '../app_navigation/routes/app_routes.dart';
 import '../common/app_color_scheme_helper.dart';
 import '../common/app_media_query_padding_helper.dart';
 import '../common/app_offset_box.dart';
 import '../common/app_padding_grade.dart';
 import '../common/app_text_styles.dart';
-import '../widgets/app_scaffold.dart';
-import '../widgets/app_text.dart';
+import '../widgets/base/app_scaffold.dart';
+import '../widgets/base/app_text.dart';
 import '../widgets/buttons/app_filled_text_button.dart';
 import '../widgets/textfields/app_textfield.dart';
 

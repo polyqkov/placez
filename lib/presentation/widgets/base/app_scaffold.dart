@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 class AppScaffold extends StatefulWidget {
   const AppScaffold({
     Key? key,
-    required this.child,
+    this.child = const SizedBox(),
     this.color,
     this.paddingTop,
     this.paddingBottom,
     this.paddingLeft,
     this.paddingRight,
+    this.bottomBar,
   }) : super(key: key);
 
   final Widget child;
@@ -17,6 +18,7 @@ class AppScaffold extends StatefulWidget {
   final double? paddingBottom;
   final double? paddingLeft;
   final double? paddingRight;
+  final Widget? bottomBar;
 
   @override
   State<AppScaffold> createState() => _AppScaffoldState();
@@ -39,6 +41,7 @@ class _AppScaffoldState extends State<AppScaffold> {
           ),
           child: widget.child,
         ),
+        bottomNavigationBar: widget.bottomBar,
       ),
     );
   }

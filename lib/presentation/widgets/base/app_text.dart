@@ -9,6 +9,7 @@ class AppText extends StatelessWidget {
     this.padding,
     this.alignment,
     this.textAlign,
+    this.args,
   }) : super(key: key);
 
   final String text;
@@ -16,6 +17,7 @@ class AppText extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final AlignmentGeometry? alignment;
   final TextAlign? textAlign;
+  final List<String>? args;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class AppText extends StatelessWidget {
           text,
           style: style,
           textAlign: textAlign,
-        ).tr(),
+        ).tr(args: args),
       ),
     );
   }

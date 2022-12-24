@@ -18,5 +18,6 @@
   "surname": "Surname",
   "welcome!": "Welcome!",
   "what_youre_interested": "Let us know what you’re interested in...",
+  "choosed_categories_count": "You chose {}/5 categories",
   "finish": "Finish"
 }
